@@ -113,7 +113,9 @@ export interface MidtransNotificationBody {
 }
 
 
-@see https://docs.midtrans.com/reference/http-notification
+/**
+ * @see https://docs.midtrans.com/reference/http-notification
+ */
 export function verifyMidtransSignature(body: MidtransNotificationBody): boolean {
   const serverKey = process.env.MIDTRANS_SERVER_KEY;
   if (!serverKey || !body.signature_key || !body.order_id || body.status_code === undefined || body.gross_amount === undefined) {

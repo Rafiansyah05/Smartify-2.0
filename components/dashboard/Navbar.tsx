@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { Bell, User, ArrowLeft, Menu } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-// import { ProfileModal } from "@/components/dashboard/ProfileModal";
-// import { NavbarSubscription } from "@/components/navbar-subscription";
+import { ProfileModal } from "@/components/dashboard/ProfileModal";
+import { NavbarSubscription } from "@/components/navbar-subscription";
 
 interface UserData {
   user_id: number;
@@ -21,9 +21,9 @@ interface NavbarProps {
   fullWidth?: boolean;
   showBackButton?: boolean;
   backButtonText?: string;
-  /** Jika diisi, tombol kembali mengarah ke path ini (default: /dashboard) */
+
   backHref?: string;
-  /** Buka drawer sidebar (mobile dashboard / generate) */
+
   onOpenMobileNav?: () => void;
 }
 
@@ -95,9 +95,8 @@ export function Navbar({
   return (
     <>
       <nav
-        className={`fixed top-0 right-0 z-40 h-16 border-b border-border bg-white shadow-sm transition-all duration-300 ${
-          fullWidth ? "left-0" : hasSidebar ? "left-0 md:left-64" : "left-0"
-        }`}
+        className={`fixed top-0 right-0 z-40 h-16 border-b border-border bg-white shadow-sm transition-all duration-300 ${fullWidth ? "left-0" : hasSidebar ? "left-0 md:left-64" : "left-0"
+          }`}
       >
         <div className="flex h-full items-center justify-between gap-3 px-4 sm:px-6">
           <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4">
@@ -134,13 +133,13 @@ export function Navbar({
               </button>
             )}
 
-            {/* {user && (
+            {user && (
               <NavbarSubscription
                 subscriptionStatus={user.subscription_status}
                 expiredAt={user.expired_at}
                 onRefetchUser={() => void loadUser()}
               />
-            )} */}
+            )}
 
             <div className="relative">
               <button
@@ -196,14 +195,14 @@ export function Navbar({
         </div>
       </nav>
 
-      {/* {user && (
+      {user && (
         <ProfileModal
           isOpen={showProfileModal}
           onClose={() => setShowProfileModal(false)}
           user={user}
           onUpdate={handleUpdateUser}
         />
-      )} */}
+      )}
     </>
   );
 }

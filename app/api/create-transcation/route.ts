@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromToken } from '@/lib/auth/auth-service';
 import { createSnapTransaction } from '@/lib/midtrans';
 import { isPremiumEffective } from '@/lib/subscription/plan';
-import { PREMIUM_GROSS_IDR } from '@/lib/subscription/activate-premium.server';
+import { PREMIUM_GROSS_IDR } from '@/lib/subscription/active-premium.server';
+
 
 export async function POST(request: NextRequest) {
   try {

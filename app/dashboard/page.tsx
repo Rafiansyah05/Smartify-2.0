@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-// import { QuizCard } from '@/components/dashboard/QuizCard';
+import { QuizCard } from '@/components/dashboard/QuizCard';
 import { Search, FileText, LayoutGrid, List } from 'lucide-react';
 import Link from 'next/link';
 
@@ -73,9 +73,8 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => setViewMode('grid')}
-                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:flex-initial sm:px-4 ${
-                  viewMode === 'grid' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-card-foreground'
-                }`}
+                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:flex-initial sm:px-4 ${viewMode === 'grid' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-card-foreground'
+                  }`}
               >
                 <LayoutGrid className="h-4 w-4" />
                 <span className="hidden sm:inline">Grid</span>
@@ -83,9 +82,8 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => setViewMode('list')}
-                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:flex-initial sm:px-4 ${
-                  viewMode === 'list' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-card-foreground'
-                }`}
+                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:flex-initial sm:px-4 ${viewMode === 'list' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-card-foreground'
+                  }`}
               >
                 <List className="h-4 w-4" />
                 <span className="hidden sm:inline">List</span>
@@ -101,7 +99,7 @@ export default function DashboardPage() {
         </div>
       ) : !searchHasNoMatch ? (
         <div className={viewMode === 'grid' ? 'grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3' : 'flex flex-col gap-4'}>
-          {/* {filteredQuizzes.map((quiz) => (
+          {filteredQuizzes.map((quiz) => (
             <QuizCard
               key={quiz.kuis_id}
               id={quiz.kuis_id}
@@ -112,7 +110,7 @@ export default function DashboardPage() {
               status={quiz.status || 'draft'}
               onDeleted={() => fetchQuizzes({ silent: true })}
             />
-          ))} */}
+          ))}
         </div>
       ) : null}
 

@@ -42,12 +42,11 @@ export function ProfileModal({ isOpen, onClose, user, onUpdate }: ProfileModalPr
         }
     }, [user]);
 
-    // Format tanggal: 1 Januari 2025
+
     const formatDate = (dateString: string) => {
         if (!dateString) return '-';
         const date = new Date(dateString);
 
-        // Cek apakah date valid
         if (isNaN(date.getTime())) return '-';
 
         const day = date.getDate();
@@ -75,13 +74,11 @@ export function ProfileModal({ isOpen, onClose, user, onUpdate }: ProfileModalPr
         const file = e.target.files?.[0];
         if (!file) return;
 
-        // Validasi tipe file
         if (!file.type.startsWith('image/')) {
             setError('Hanya file gambar yang diperbolehkan');
             return;
         }
 
-        // Validasi ukuran (max 2MB)
         if (file.size > 2 * 1024 * 1024) {
             setError('Ukuran file maksimal 2MB');
             return;
@@ -99,7 +96,6 @@ export function ProfileModal({ isOpen, onClose, user, onUpdate }: ProfileModalPr
                 body: formData,
             });
 
-            // Cek response sebelum parsing JSON
             const textResponse = await res.text();
 
             let data;
@@ -114,7 +110,7 @@ export function ProfileModal({ isOpen, onClose, user, onUpdate }: ProfileModalPr
                 throw new Error(data.error || 'Gagal upload avatar');
             }
 
-            // Preview gambar lokal dulu
+
             const reader = new FileReader();
             reader.onloadend = () => {
                 setAvatarPreview(reader.result as string);
